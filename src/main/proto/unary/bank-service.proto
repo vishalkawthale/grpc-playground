@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package unary;
+option java_multiple_files = true;
+option java_package = "com.grpc.playground.proto.models.unary";
+
+message AccountBalanceRequest {
+  int32 account_number = 1;
+}
+
+message AccountBalance {
+  int32 account_number =1;
+  int32 amount = 2;
+}
+
+service BankService {
+  rpc GetAccountBalance(AccountBalanceRequest) returns (AccountBalance);
+}
